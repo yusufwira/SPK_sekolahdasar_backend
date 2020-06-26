@@ -3,8 +3,8 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: *');
 require('../connection.php');
 
-
-$sql = "SELECT * FROM users u INNER JOIN info_sekolah s on u.id_users= s.users_id_users INNER JOIN foto_sekolah f on s.idinfo_sekolah = f.info_sekolah_idinfo_sekolah GROUP by s.idinfo_sekolah";
+$id_user = $_GET['iduser'];
+$sql = "SELECT * FROM users u INNER JOIN info_sekolah s on u.id_users= s.users_id_users INNER JOIN foto_sekolah f on s.idinfo_sekolah = f.info_sekolah_idinfo_sekolah WHERE u.id_users = $id_user GROUP by s.idinfo_sekolah";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {		
     $list_sekolah = array();
@@ -51,7 +51,7 @@ if ($result->num_rows > 0) {
     echo json_encode($list_sekolah);
 	
 } else {  
-	echo "Unable to process you request, please try again";
+    echo json_encode("belum ada");
 	die();
 }
 

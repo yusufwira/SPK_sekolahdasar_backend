@@ -22,6 +22,7 @@ if ($result->num_rows > 0) {
 			$detail_user[$i]['notelp_user'] = addslashes(htmlentities($obj['notelp_user']));
 			$detail_user[$i]['email_user'] = addslashes(htmlentities($obj['email_user']));
 			$detail_user[$i]['photo'] = addslashes(htmlentities($obj['photo']));
+			$detail_user[$i]['hak_akses'] = addslashes(htmlentities($obj['hak_akses']));
 		}
 		$i++;
 	}	
