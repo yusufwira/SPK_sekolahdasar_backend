@@ -1,5 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Headers: *');
 require('../connection.php');
 
 $nama= $_GET['nama'];
@@ -31,10 +32,33 @@ if ($result->num_rows > 0) {
                 $sql4 = "INSERT INTO kriteria_bobot (kriteria_1,kriteria_2,bobot) values ($last_id,$arr_temp[$i],1)";
                 $conn->query($sql4);
             }
-            echo json_encode($arr_temp);
+
+            $sql_sekolah = "SELECT * FROM info_sekolah";
+            $result_infosekolah = $conn->query($sql_sekolah);
+            $id_sekolah = array();
+            $z =0;
+            while ($sekolah = $result_infosekolah->fetch_assoc()){
+                $id_sekolah[$z] = $sekolah['idinfo_sekolah'];
+                $z++;
+            }
+            for ($i=0; $i < sizeof($id_sekolah); $i++) { 
+                for ($j=0; $j <= $i; $j++) { 
+                    $sql_sbobot = "INSERT INTO sekolah_bobot (kriteria_id, sekolah_id_1, sekolah_id_2, bobot) VALUES (".$last_id.",". $id_sekolah[$i].",". $id_sekolah[$j].",1)";
+                    if ($conn->query($sql_sbobot) === TRUE) {
+                        $test = "Sukses";
+                    } else {
+                        $test = "Error: " . $sql_sbobot . "<br>" . $conn->error;
+                    }
+                }
+            }
+            
+
+            echo json_encode($test);
         } else {
              echo json_encode("Error: " . $sql . "<br>" . $conn->error);
         }
+
+
     }
 
 	

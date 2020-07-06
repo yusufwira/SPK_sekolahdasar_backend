@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
     echo json_encode($list_review);
 	
 } else {  
-	echo "Unable to process you request, please try again";
+	echo json_encode("tidak ada");
 	die();
 }
 

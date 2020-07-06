@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
     echo json_encode($arr_data);
 	
 } else {  
-	echo "Unable to process you request, please try again";
+	echo json_encode("tidak ada");
 	die();
 }
 
