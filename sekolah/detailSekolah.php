@@ -33,7 +33,9 @@ if ($result->num_rows > 0) {
         $list_sekolah['listrik'] = addslashes(htmlentities($obj['listrik']));
         $list_sekolah['daya_listrik'] = addslashes(htmlentities($obj['daya_listrik']));
         $list_sekolah['luas_tanah'] = addslashes(htmlentities($obj['luas_tanah']));
+        $list_sekolah['besar_bangunan'] = addslashes(htmlentities($obj['besar_bangunan']));
         $list_sekolah['jumlah_kelas'] = addslashes(htmlentities($obj['jumlah_kelas']));
+        $list_sekolah['jumlah_kelas_ac'] = addslashes(htmlentities($obj['jumlah_kelas_ac']));
         $list_sekolah['jumlah_laboratorium'] = addslashes(htmlentities($obj['jumlah_laboratorium']));
         $list_sekolah['jumlah_perpustakaan'] = addslashes(htmlentities($obj['jumlah_perpustakaan']));
         $list_sekolah['koordinat_X'] = addslashes(htmlentities($obj['koordinat_X']));

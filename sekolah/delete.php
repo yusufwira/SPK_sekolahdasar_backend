@@ -49,6 +49,22 @@
         $rating = true;
     }
 
+    $sekolah_bobot = false;
+    $sql_sekolah_bobot = "SELECT * FROM sekolah_bobot WHERE sekolah_id_1=".$idsekolah." AND sekolah_id_2 =".$idsekolah;
+    $result_sekolah_bobot = $conn->query($sql_sekolah_bobot);
+    if ($result_sekolah_bobot->num_rows > 0) {
+        $sql10 = "DELETE FROM sekolah_bobot WHERE sekolah_id_1=".$idsekolah." or sekolah_id_2 =".$idsekolah;
+        if ($conn->query($sql10) === TRUE) {
+            $sekolah_bobot = true;
+        } else {
+            echo json_encode ("Error deleting record: " . $conn->error);
+        }
+    } else {
+        $sekolah_bobot = true;
+    }
+
+    
+
     $history = false;
     $sql_history = "SELECT * FROM info_sekolah_has_history WHERE info_sekolah_idinfo_sekolah=".$idsekolah;
     $result_history = $conn->query($sql_history);
@@ -62,7 +78,10 @@
     } else {
         $history = true;
     }
-    if($ekstra == true && $foto == true && $review == true && $rating == true && $history == true){
+
+
+
+    if($ekstra == true && $foto == true && $review == true && $rating == true && $history == true && $sekolah_bobot == true){
         $sql_result = "DELETE FROM info_sekolah WHERE idinfo_sekolah=".$idsekolah;
         if ($conn->query($sql_result) === TRUE) {
            echo json_encode("sukses");

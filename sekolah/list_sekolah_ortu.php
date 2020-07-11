@@ -4,7 +4,7 @@ header('Access-Control-Allow-Headers: *');
 require('../connection.php');
 
 
-$sql = "SELECT * FROM users u INNER JOIN info_sekolah s on u.id_users= s.users_id_users INNER JOIN foto_sekolah f on s.idinfo_sekolah = f.info_sekolah_idinfo_sekolah GROUP by s.idinfo_sekolah";
+$sql = "SELECT * FROM users u INNER JOIN info_sekolah s on u.id_users= s.users_id_users INNER JOIN foto_sekolah f on s.idinfo_sekolah = f.info_sekolah_idinfo_sekolah where s.status_sekolah = 'tervalidasi' GROUP by s.idinfo_sekolah";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {		
     $list_sekolah = array();
