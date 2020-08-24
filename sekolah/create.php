@@ -18,6 +18,7 @@ $kepalaSekolah = $_POST['kepalaSekolah'];
 $guru = $_POST['guru'];
 $laki = $_POST['laki'];
 $perempuan = $_POST['perempuan'];
+$lulus = $_POST['lulus'];
 $kurikulum = $_POST['kurikulum'];
 $jam = $_POST['jam'];
 
@@ -33,6 +34,10 @@ $jumlahKelas = $_POST['jumlahkelas'];
 $jumlah_kelas_ac = $_POST['jumlah_kelas_ac'];
 $jumlahLab= $_POST['jumlahlab'];
 $jumlahPerpus= $_POST['jumlahperpus'];
+$uang_gedung = $_POST['uang_gedung'];
+$uang_daftar_ulang = $_POST['uang_daftar_ulang'];
+$uang_spp = $_POST['uang_spp'];
+$uang_seragam = $_POST['uang_seragam'];
 $X = $_POST['koorX'];
 $Y = $_POST['koorY'];
 $ket = $_POST['ket'];
@@ -50,7 +55,8 @@ if($ruangAc == "sebagian"){
     nama_kepala_sekola, 
     jumlah_guru, 
     jumlah_siswa_laki, 
-    jumlah_siswa_perempuan, 
+    jumlah_siswa_perempuan,
+    jumlah_lulusan_siswa, 
     kurikulum,
     jam_sekolah,
     internet,
@@ -63,6 +69,10 @@ if($ruangAc == "sebagian"){
     jumlah_kelas_ac,
     jumlah_laboratorium,
     jumlah_perpustakaan,
+    uang_gedung,
+    uang_daftar_ulang,
+    uang_spp,
+    uang_seragam,
     koordinat_X,
     koordinat_Y,
     keterangan,
@@ -79,6 +89,7 @@ if($ruangAc == "sebagian"){
     $guru,
     $laki,
     $perempuan,
+    $lulus,
     '$kurikulum',
     '$jam',
     '$internet',
@@ -91,6 +102,10 @@ if($ruangAc == "sebagian"){
     $jumlah_kelas_ac,
     $jumlahLab,
     $jumlahPerpus,
+    $uang_gedung,
+    $uang_daftar_ulang,
+    $uang_spp,
+    $uang_seragam,
     '$X',
     '$Y',
     '$ket',
@@ -109,6 +124,7 @@ else if($ruangAc == 'semua'){
     jumlah_guru, 
     jumlah_siswa_laki, 
     jumlah_siswa_perempuan, 
+    jumlah_lulusan_siswa,
     kurikulum,
     jam_sekolah,
     internet,
@@ -121,6 +137,10 @@ else if($ruangAc == 'semua'){
     jumlah_kelas_ac,
     jumlah_laboratorium,
     jumlah_perpustakaan,
+    uang_gedung,
+    uang_daftar_ulang,
+    uang_spp,
+    uang_seragam,
     koordinat_X,
     koordinat_Y,
     keterangan,
@@ -137,6 +157,7 @@ else if($ruangAc == 'semua'){
     $guru,
     $laki,
     $perempuan,
+    $lulus,
     '$kurikulum',
     '$jam',
     '$internet',
@@ -149,6 +170,10 @@ else if($ruangAc == 'semua'){
     $jumlahKelas,
     $jumlahLab,
     $jumlahPerpus,
+    $uang_gedung,
+    $uang_daftar_ulang,
+    $uang_spp,
+    $uang_seragam,
     '$X',
     '$Y',
     '$ket',
@@ -167,6 +192,7 @@ else if($ruangAc == 'tidak'){
     jumlah_guru, 
     jumlah_siswa_laki, 
     jumlah_siswa_perempuan, 
+    jumlah_lulusan_siswa,
     kurikulum,
     jam_sekolah,
     internet,
@@ -179,6 +205,10 @@ else if($ruangAc == 'tidak'){
     jumlah_kelas_ac,
     jumlah_laboratorium,
     jumlah_perpustakaan,
+    uang_gedung,
+    uang_daftar_ulang,
+    uang_spp,
+    uang_seragam,
     koordinat_X,
     koordinat_Y,
     keterangan,
@@ -195,6 +225,7 @@ else if($ruangAc == 'tidak'){
     $guru,
     $laki,
     $perempuan,
+    $lulus,
     '$kurikulum',
     '$jam',
     '$internet',
@@ -207,6 +238,10 @@ else if($ruangAc == 'tidak'){
     0,
     $jumlahLab,
     $jumlahPerpus,
+    $uang_gedung,
+    $uang_daftar_ulang,
+    $uang_spp,
+    $uang_seragam,
     '$X',
     '$Y',
     '$ket',
