@@ -4,8 +4,6 @@ header('Access-Control-Allow-Headers: *');
 require('../connection.php');
 
 $nama= $_GET['nama'];
-
-
 $sql = "SELECT * from kriteria";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {		
