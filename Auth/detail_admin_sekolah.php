@@ -4,7 +4,7 @@ header('Access-Control-Allow-Headers: *');
 require('../connection.php');
 
 $id_users = $_GET['id_users'];
-$sql = "SELECT * FROM users u INNER JOIN info_sekolah s on u.id_users=s.users_id_users INNER JOIN foto_sekolah f on s.idinfo_sekolah = f.info_sekolah_idinfo_sekolah WHERE u.id_users =".$id_users." GROUP by u.id_users";
+$sql = "SELECT * FROM users u INNER JOIN info_sekolah s on u.id_users=s.users_id_users INNER JOIN foto_sekolah f on s.npsn = f.info_sekolah_idinfo_sekolah WHERE u.id_users =".$id_users." GROUP by u.id_users";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {		
     $detail_data = array();
@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
         $detail_data[$i]['kecamatan'] = addslashes(htmlentities($obj['kecamatan']));
         $detail_data[$i]['photo'] = addslashes(htmlentities($obj['photo']));
 
-        $detail_data[$i]['idinfo_sekolah'] = addslashes(htmlentities($obj['idinfo_sekolah']));
+        $detail_data[$i]['idinfo_sekolah'] = addslashes(htmlentities($obj['npsn']));
         $detail_data[$i]['nama_sekolah'] = addslashes(htmlentities($obj['nama_sekolah']));
         $detail_data[$i]['alamat_sekolah'] = addslashes(htmlentities($obj['alamat_sekolah']));
         $detail_data[$i]['notelp_sekolah'] = addslashes(htmlentities($obj['notelp_sekolah']));

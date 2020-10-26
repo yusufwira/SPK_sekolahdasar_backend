@@ -14,6 +14,8 @@ $photo = $_GET['photo'];
 $hak_akses = $_GET['hak'];
 
 
+
+
 $sql = "INSERT INTO users (username, password, hak_akses, nama_user, alamat_user, kecamatan, notelp_user, email_user,photo)
 VALUES ('$username','$password','$hak_akses','$nama_user','$alamat_user','$kecamatan','$notelp_user','$email_user','$photo')";
 
