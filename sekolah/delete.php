@@ -13,6 +13,14 @@
       echo json_encode ("Error deleting record: " . $conn->error);
     }
 
+    $detail = false;
+    $sql = "DELETE FROM info_sekolah_has_kriteria_detail WHERE info_sekolah_idinfo_sekolah=".$idsekolah;
+    if ($conn->query($sql) === TRUE) {
+        $detail = true;
+    } else {
+      echo json_encode ("Error deleting record: " . $conn->error);
+    }
+
     $foto = false;
     $sql2 = "DELETE FROM foto_sekolah WHERE info_sekolah_idinfo_sekolah=".$idsekolah;
     if ($conn->query($sql2) === TRUE) {
@@ -49,40 +57,22 @@
         $rating = true;
     }
 
-    $sekolah_bobot = false;
-    $sql_sekolah_bobot = "SELECT * FROM sekolah_bobot WHERE sekolah_id_1=".$idsekolah." AND sekolah_id_2 =".$idsekolah;
-    $result_sekolah_bobot = $conn->query($sql_sekolah_bobot);
-    if ($result_sekolah_bobot->num_rows > 0) {
-        $sql10 = "DELETE FROM sekolah_bobot WHERE sekolah_id_1=".$idsekolah." or sekolah_id_2 =".$idsekolah;
-        if ($conn->query($sql10) === TRUE) {
-            $sekolah_bobot = true;
-        } else {
-            echo json_encode ("Error deleting record: " . $conn->error);
-        }
-    } else {
-        $sekolah_bobot = true;
-    }
+    // $history = false;
+    // $sql_history = "SELECT * FROM info_sekolah_has_history WHERE info_sekolah_idinfo_sekolah=".$idsekolah;
+    // $result_history = $conn->query($sql_history);
+    // if ($result_history->num_rows > 0) {
+    //     $sql4 = "DELETE FROM info_sekolah_has_history WHERE info_sekolah_idinfo_sekolah=".$idsekolah;
+    //     if ($conn->query($sql4) === TRUE) {
+    //         $history = true;
+    //     } else {
+    //     echo json_encode ("Error deleting record: " . $conn->error);
+    //     }
+    // } else {
+    //     $history = true;
+    // }
 
-    
-
-    $history = false;
-    $sql_history = "SELECT * FROM info_sekolah_has_history WHERE info_sekolah_idinfo_sekolah=".$idsekolah;
-    $result_history = $conn->query($sql_history);
-    if ($result_history->num_rows > 0) {
-        $sql4 = "DELETE FROM info_sekolah_has_history WHERE info_sekolah_idinfo_sekolah=".$idsekolah;
-        if ($conn->query($sql4) === TRUE) {
-            $history = true;
-        } else {
-        echo json_encode ("Error deleting record: " . $conn->error);
-        }
-    } else {
-        $history = true;
-    }
-
-
-
-    if($ekstra == true && $foto == true && $review == true && $rating == true && $history == true && $sekolah_bobot == true){
-        $sql_result = "DELETE FROM info_sekolah WHERE idinfo_sekolah=".$idsekolah;
+    if($ekstra == true && $detail == true && $foto == true && $review == true && $rating == true){
+        $sql_result = "DELETE FROM info_sekolah WHERE npsn=".$idsekolah;
         if ($conn->query($sql_result) === TRUE) {
            echo json_encode("sukses");
         } else {
