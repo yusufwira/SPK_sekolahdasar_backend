@@ -2,7 +2,11 @@
 header("Access-Control-Allow-Origin: *");
 require('../connection.php');
 
-$sql = "SELECT * from ekstrakurikuler";
+$key = null;
+if (isset($_GET['key'])) {
+    $key = $_GET['key'];
+}
+$sql = "SELECT * from ekstrakurikuler WHERE nama_eks LIKE '%$key%' order by nama_eks asc";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {		
     $detail_eks = array();
