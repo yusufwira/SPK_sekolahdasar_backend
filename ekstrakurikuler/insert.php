@@ -3,7 +3,6 @@ header("Access-Control-Allow-Origin: *");
 require('../connection.php');
 
 $nama= $_GET['nama'];
-$desc = $_GET['desc'];
 
 
 $sql = "SELECT * from ekstrakurikuler";
@@ -20,7 +19,7 @@ if ($result->num_rows > 0) {
     }
     
     if($check == false){
-        $sql2 = "INSERT INTO ekstrakurikuler (nama_eks, keterangan) values ('$nama', '$desc')";
+        $sql2 = "INSERT INTO ekstrakurikuler (nama_eks, keterangan) values ('$nama', 'Belum Tervalidasi')";
         if ($conn->query($sql2) === TRUE) {
             echo json_encode("Sukses");
         } else {
