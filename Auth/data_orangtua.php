@@ -18,9 +18,6 @@ if ($result->num_rows > 0) {
     	
     echo json_encode($detail_data);
 	
-} else {  
-	echo "Unable to process you request, please try again";
-	die();
 }
 
 ?>
